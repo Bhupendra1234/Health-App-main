@@ -32,7 +32,7 @@ def predict():
         prediction = "Sorry you chances of getting the disease. Please consult the doctor immediately"
     else:
         prediction = "No need to fear. You have no dangerous symptoms of the disease"
-    return(render_template("result.html", prediction_text=prediction))       
+    return ({'prediction_text': prediction})
 
 if __name__ == "__main__":
     app.run(debug=True)

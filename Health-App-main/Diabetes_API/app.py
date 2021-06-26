@@ -1,5 +1,6 @@
-from flask import Flask, render_template, url_for, flash, redirect
+from flask import Flask, render_template, url_for, flash, redirect,make_response
 import joblib
+import jsonify
 from flask import request
 import numpy as np
 
@@ -32,7 +33,8 @@ def predict():
         prediction = "Sorry you chances of getting the disease. Please consult the doctor immediately"
     else:
         prediction = "No need to fear. You have no dangerous symptoms of the disease"
-    return(render_template("result.html", prediction_text=prediction))       
+    return ({'prediction_text':prediction}) 
+  
 
 if __name__ == "__main__":
     app.run(debug=True)
